@@ -39,3 +39,11 @@
 
 # debug information files
 *.dwo
+
+# Python environments
+.venv/
+__pycache__/
+
+# Generated project data
+data/
+*.log

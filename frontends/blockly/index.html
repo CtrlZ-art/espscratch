@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blockly ESP32 Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="js/custom_blocks.js" defer></script>
+    <script src="js/arduino_generator.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="left">
+        <span class="title">Blockly ESP32 Studio</span>
+        <span>拖拽积木，快速上手物联网</span>
+      </div>
+      <div class="toolbar">
+        <button id="btn-generate">生成代码</button>
+        <button id="btn-flash">烧录</button>
+        <button id="btn-save">保存项目</button>
+        <button id="btn-load">载入项目</button>
+      </div>
+    </header>
+    <div class="main-layout">
+      <aside class="sidebar">
+        <h2>开发板列表</h2>
+        <div class="board-list"></div>
+      </aside>
+      <section class="workspace">
+        <div id="blocklyArea">
+          <div id="blocklyDiv"></div>
+        </div>
+        <div class="console"></div>
+        <div class="camera-panel">
+          <header>摄像头预览</header>
+          <iframe id="cameraFrame" title="ESP32 Camera Preview"></iframe>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

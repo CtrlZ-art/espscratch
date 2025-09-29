@@ -1,0 +1,177 @@
+:root {
+  --brand-color: #f58220;
+  --toolbar-height: 56px;
+  --sidebar-width: 260px;
+  --bg-light: #f5f7fb;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-light);
+  color: #222;
+}
+
+header {
+  height: var(--toolbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: var(--brand-color);
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+header .left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header .title {
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+header .toolbar {
+  display: flex;
+  gap: 12px;
+}
+
+header button {
+  background: white;
+  color: var(--brand-color);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+header button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.main-layout {
+  display: flex;
+  height: calc(100vh - var(--toolbar-height));
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background: white;
+  border-right: 1px solid #d9dce3;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin: 0;
+  padding: 16px 20px;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar .board-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar .board-item {
+  padding: 14px 20px;
+  border-bottom: 1px solid #f1f1f1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.sidebar .board-item:hover,
+.sidebar .board-item.active {
+  background: rgba(245, 130, 32, 0.12);
+}
+
+.sidebar .board-item small {
+  display: block;
+  color: #888;
+  margin-top: 4px;
+}
+
+.workspace {
+  flex: 1;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) 220px auto;
+  min-height: 0;
+}
+
+.workspace > * {
+  min-width: 0;
+}
+
+#blocklyArea {
+  position: relative;
+  min-height: 0;
+}
+
+#blocklyDiv {
+  position: absolute;
+  inset: 0;
+}
+
+.console {
+  height: 220px;
+  background: #1e1e1e;
+  color: #f0f0f0;
+  font-family: "Fira Code", "Consolas", monospace;
+  font-size: 13px;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.console .status-success {
+  color: #4caf50;
+}
+
+.console .status-error {
+  color: #e91e63;
+}
+
+.console .status-running {
+  color: #ffc107;
+}
+
+.camera-panel {
+  border-top: 1px solid #d9dce3;
+  background: #fff;
+  display: none;
+  flex-direction: column;
+}
+
+.camera-panel.active {
+  display: flex;
+}
+
+.camera-panel header {
+  background: #fff;
+  color: #333;
+  padding: 12px 20px;
+  height: auto;
+  box-shadow: none;
+  border-bottom: 1px solid #eee;
+}
+
+.camera-panel video,
+.camera-panel iframe {
+  width: 100%;
+  height: 320px;
+  border: none;
+  background: #000;
+}
+
+@media (max-width: 1080px) {
+  .sidebar {
+    display: none;
+  }
+}
